@@ -1,16 +1,5 @@
-import type { SlotSymbol, WinLine } from '@/store/gameStore';
+import type { SlotSymbol, WinLine, SpinResult } from '@/store/gameStore';  // Импорт типы, если они в gameStore.ts
 
-export interface SpinResult {
-  symbols: SlotSymbol[]; // 9 symbols for 3x3 grid
-  payout: number;
-  winType: 'none' | 'small' | 'normal' | 'big' | 'jackpot';
-  winLines: WinLine[];
-  isNearMiss: boolean;
-}
-
-const SYMBOLS: SlotSymbol[] = ['🍒', '🍋', '🍊', '🍉', '💎', '7️⃣', '⭐'];
-
-// Payout multipliers for 3 matching symbols on a line
 const SYMBOL_MULTIPLIERS: Record<SlotSymbol, number> = {
   '💎': 100,
   '7️⃣': 50,
@@ -94,7 +83,7 @@ function shouldForceWin(): boolean {
 
 function generateWinningGrid(bet: number): SlotSymbol[] {
   // Start with empty grid
-  const symbols: SlotSymbol[] = Array(9).fill(null) as unknown as SlotSymbol[];
+  const symbols: SlotSymbol[] = Array(9).fill(null) as SlotSymbol[];
   
   // Decide how many lines to win
   const winChance = Math.random();
