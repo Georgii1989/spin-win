@@ -41,6 +41,7 @@ export async function generateMetadata(): Promise<Metadata> {
     description: "Exciting slot-style game on Base. Spin to win crypto rewards!",
     other: {
       'fc:miniapp': JSON.stringify(miniAppConfig),
+      'base:app_id': '697e305ec6a03f3fe39cb607',
     },
   };
 }
