@@ -17,11 +17,9 @@ function Ready() {
     _s();
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "Ready.useEffect": ()=>{
-            // Скрываем splash-экран Base Mini App как можно раньше
             __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$farcaster$2f$miniapp$2d$sdk$2f$dist$2f$sdk$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["sdk"].actions.ready();
         }
     }["Ready.useEffect"], []);
-    // Компонент ничего не рендерит
     return null;
 }
 _s(Ready, "OD7bBpZva5O2jO+Puf00hKivP7c=");

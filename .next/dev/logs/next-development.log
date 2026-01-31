@@ -1,145 +1,110 @@
-[00:00:02.618] Server  LOG     ✓ Ready in 1947ms
-[00:00:07.548] Server  ERROR   ⨯ ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
+[00:00:01.122] Server  LOG     ✓ Ready in 742ms
+[00:00:04.991] Server  ERROR   ⨯ ./lib/slotMachine.ts:214:17
+Ecmascript file had an error
+  212 | }
+  213 |
+> 214 | export function spinSlotMachine(bet: number): SpinResult {
+      |                 ^^^^^^^^^^^^^^^
+  215 |   let symbols: SlotSymbol[];
+  216 |   
+  217 |   if (shouldForceWin()) {
 
+the name `spinSlotMachine` is defined multiple times
 
-
-Import trace:
+Import traces:
   Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
+    ./lib/slotMachine.ts [Client Component Browser]
+    ./components/slot/SlotMachine.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
-https://nextjs.org/docs/messages/module-not-found
-
-
-[00:00:09.625] Browser ERROR   uncaughtError: Error: ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
+  Client Component SSR:
+    ./lib/slotMachine.ts [Client Component SSR]
+    ./components/slot/SlotMachine.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
 
 
+[00:00:06.469] Browser ERROR   uncaughtError: Error: ./lib/slotMachine.ts:214:17
+Ecmascript file had an error
+  212 | }
+  213 |
+> 214 | export function spinSlotMachine(bet: number): SpinResult {
+      |                 ^^^^^^^^^^^^^^^
+  215 |   let symbols: SlotSymbol[];
+  216 |   
+  217 |   if (shouldForceWin()) {
 
-Import trace:
+the name `spinSlotMachine` is defined multiple times
+
+Import traces:
   Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
+    ./lib/slotMachine.ts [Client Component Browser]
+    ./components/slot/SlotMachine.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
-https://nextjs.org/docs/messages/module-not-found
+  Client Component SSR:
+    ./lib/slotMachine.ts [Client Component SSR]
+    ./components/slot/SlotMachine.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
 
 
-[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
+[00:00:06.960] Browser WARN    Backpack couldn't override `window.ethereum`.
+[00:00:07.117] Browser ERROR   ./lib/slotMachine.ts:214:17
+Ecmascript file had an error
+  212 | }
+  213 |
+> 214 | export function spinSlotMachine(bet: number): SpinResult {
+      |                 ^^^^^^^^^^^^^^^
+  215 |   let symbols: SlotSymbol[];
+  216 |   
+  217 |   if (shouldForceWin()) {
 
-Import trace:
+the name `spinSlotMachine` is defined multiple times
+
+Import traces:
   Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
+    ./lib/slotMachine.ts [Client Component Browser]
+    ./components/slot/SlotMachine.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
-https://nextjs.org/docs/messages/module-not-found
-[00:00:10.285] Browser WARN    Backpack couldn't override `window.ethereum`.
-[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
+  Client Component SSR:
+    ./lib/slotMachine.ts [Client Component SSR]
+    ./components/slot/SlotMachine.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:00:07.117] Browser ERROR   ./lib/slotMachine.ts:214:17
+Ecmascript file had an error
+  212 | }
+  213 |
+> 214 | export function spinSlotMachine(bet: number): SpinResult {
+      |                 ^^^^^^^^^^^^^^^
+  215 |   let symbols: SlotSymbol[];
+  216 |   
+  217 |   if (shouldForceWin()) {
 
-Import trace:
+the name `spinSlotMachine` is defined multiple times
+
+Import traces:
   Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
+    ./lib/slotMachine.ts [Client Component Browser]
+    ./components/slot/SlotMachine.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
 
-https://nextjs.org/docs/messages/module-not-found
-[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
-
-Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:01.438] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
-
-Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
-
-Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
-
-Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
-[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
-Module not found: Can't resolve 'tw-animate-css'
-  1 |
-> 2 | @import "tw-animate-css";
-    |  ^
-  3 |
-  4 | @custom-variant dark (&:is(.dark *));
-  5 |
-
-Import trace:
-  Client Component Browser:
-    ./app/globals.css [Client Component Browser]
-    ./app/layout.tsx [Server Component]
-
-https://nextjs.org/docs/messages/module-not-found
+  Client Component SSR:
+    ./lib/slotMachine.ts [Client Component SSR]
+    ./components/slot/SlotMachine.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:03:44.979] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:44.979] Browser WARN    Backpack couldn't override `window.ethereum`.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.
+[00:03:46.065] Browser WARN    No file extension was found. Consider using the "format" property or specify an extension.

@@ -77,11 +77,10 @@
   },
   "devDependencies": {
     "@anton-seriesfi/ts-typie": "^3.0.2",
-    "@types/date-fns": "^2.6.3",
+    
     "@types/node": "20.17.47",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "@types/tailwindcss": "^3.1.0",
     "depcheck": "^1.4.7",
     "postcss": "^8",
     "prisma": "^5.11.0",

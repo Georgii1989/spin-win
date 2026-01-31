@@ -8,7 +8,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true, // Рекомендую включить (или оставьте false, если много ошибок)
+    "strict": true,
     "noEmit": true,
     "incremental": true,
     "module": "esnext",
@@ -17,14 +17,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "baseUrl": ".", // Добавлено
-    "forceConsistentCasingInFileNames": true, // Добавлено
+    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
       }
     ],
-    "paths": { // Добавлено — главное для @/
+    "paths": {
       "@/*": [
         "./*"
       ]

@@ -1,7 +1,7 @@
 import { Howl } from 'howler';
 
 class AudioManager {
-  private sounds: Map<string, Howl> = new Map();
+  private sounds = new Map<string, Howl>();
   private initialized = false;
   private volume = 0.5;
 

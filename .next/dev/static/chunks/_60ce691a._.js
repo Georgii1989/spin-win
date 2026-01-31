@@ -26,17 +26,7 @@ const useGameStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
         currentBetIndex: 0,
         spinState: 'idle',
         lastWin: 0,
-        reelResults: [
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒',
-            '🍒'
-        ],
+        reelResults: [],
         winLines: [],
         lastDailyBonus: 0,
         lastGMBonus: 0,
@@ -46,83 +36,53 @@ const useGameStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_mo
         setCredits: (credits)=>set({
                 credits
             }),
-        addCredits: (amount)=>set((state)=>({
-                    credits: state.credits + amount
-                })),
-        deductCredits: (amount)=>set((state)=>({
-                    credits: Math.max(0, state.credits - amount)
-                })),
-        setBet: (betIndex)=>set((state)=>({
-                    currentBetIndex: betIndex,
-                    currentBet: state.betOptions[betIndex]
-                })),
-        setSpinState: (spinState)=>set({
-                spinState
+        addCredits: (amount)=>set({
+                credits: get().credits + amount
             }),
-        setReelResults: (reelResults)=>set({
-                reelResults
+        deductCredits: (amount)=>set({
+                credits: get().credits - amount
             }),
-        setWinLines: (winLines)=>set({
-                winLines
+        setBet: (index)=>set({
+                currentBetIndex: index,
+                currentBet: BET_OPTIONS[index]
             }),
-        setLastWin: (lastWin)=>set({
-                lastWin
+        setSpinState: (state)=>set({
+                spinState: state
+            }),
+        setReelResults: (results)=>set({
+                reelResults: results
+            }),
+        setWinLines: (lines)=>set({
+                winLines: lines
+            }),
+        setLastWin: (amount)=>set({
+                lastWin: amount
             }),
         claimDailyBonus: ()=>{
             const now = Date.now();
-            const lastClaim = get().lastDailyBonus;
-            const dayInMs = 24 * 60 * 60 * 1000;
-            if (now - lastClaim >= dayInMs) {
-                set((state)=>({
-                        credits: state.credits + DAILY_BONUS,
-                        lastDailyBonus: now
-                    }));
+            if (now - get().lastDailyBonus >= 86400000) {
+                set({
+                    lastDailyBonus: now,
+                    credits: get().credits + DAILY_BONUS
+                });
                 return true;
             }
             return false;
         },
         claimGMBonus: ()=>{
-            const now = Date.now();
-            const lastClaim = get().lastGMBonus;
-            const dayInMs = 24 * 60 * 60 * 1000;
-            const twoDaysInMs = 48 * 60 * 60 * 1000;
-            if (now - lastClaim >= dayInMs) {
-                const isConsecutive = now - lastClaim <= twoDaysInMs;
-                set((state)=>({
-                        credits: state.credits + GM_BONUS,
-                        lastGMBonus: now,
-                        gmStreak: isConsecutive ? state.gmStreak + 1 : 1
-                    }));
-                return true;
-            }
+            // Логика GM бонуса, если нужна
             return false;
         },
-        incrementSpinCount: ()=>set((state)=>({
-                    sessionSpinCount: state.sessionSpinCount + 1,
-                    totalSpins: state.totalSpins + 1
-                })),
+        incrementSpinCount: ()=>set({
+                sessionSpinCount: get().sessionSpinCount + 1,
+                totalSpins: get().totalSpins + 1
+            }),
         resetGame: ()=>set({
                 credits: INITIAL_CREDITS,
-                currentBet: BET_OPTIONS[0],
-                currentBetIndex: 0,
-                spinState: 'idle',
-                lastWin: 0,
-                reelResults: [
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒',
-                    '🍒'
-                ],
-                winLines: [],
-                sessionSpinCount: 0
+                spinState: 'idle'
             })
     }), {
-    name: 'neon-pulse-slots-storage'
+    name: 'game-storage'
 }));
 if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelpers !== null) {
     __turbopack_context__.k.registerExports(__turbopack_context__.m, globalThis.$RefreshHelpers$);
@@ -137,16 +97,6 @@ __turbopack_context__.s([
     "spinSlotMachine",
     ()=>spinSlotMachine
 ]);
-const SYMBOLS = [
-    '🍒',
-    '🍋',
-    '🍊',
-    '🍉',
-    '💎',
-    '7️⃣',
-    '⭐'
-];
-// Payout multipliers for 3 matching symbols on a line
 const SYMBOL_MULTIPLIERS = {
     '💎': 100,
     '7️⃣': 50,

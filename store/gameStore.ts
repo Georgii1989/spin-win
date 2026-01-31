@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type SlotSymbol = '🍒' | '🍋' | '🍊' | '🍉' | '💎' | '7️⃣' | '⭐';
+export type SlotSymbol = 'Cherry' | 'Lemon' | 'Orange' | 'Watermelon' | 'Diamond' | 'Seven' | 'Star';
 
 export type SpinState = 'idle' | 'spinning' | 'stopping' | 'stopped' | 'win_locked';
 
@@ -56,89 +56,37 @@ export const useGameStore = create<GameState>()(
       currentBetIndex: 0,
       spinState: 'idle',
       lastWin: 0,
-      reelResults: ['🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒'], // 3x3 grid
+      reelResults: [],
       winLines: [],
       lastDailyBonus: 0,
       lastGMBonus: 0,
       gmStreak: 0,
       sessionSpinCount: 0,
       totalSpins: 0,
-
-      setCredits: (credits: number) => set({ credits }),
       
-      addCredits: (amount: number) => set((state: GameState) => ({ 
-        credits: state.credits + amount 
-      })),
-      
-      deductCredits: (amount: number) => set((state: GameState) => ({ 
-        credits: Math.max(0, state.credits - amount) 
-      })),
-      
-      setBet: (betIndex: number) => set((state: GameState) => ({ 
-        currentBetIndex: betIndex,
-        currentBet: state.betOptions[betIndex]
-      })),
-      
-      setSpinState: (spinState: SpinState) => set({ spinState }),
-      
-      setReelResults: (reelResults: SlotSymbol[]) => set({ reelResults }),
-      
-      setWinLines: (winLines: WinLine[]) => set({ winLines }),
-      
-      setLastWin: (lastWin: number) => set({ lastWin }),
-      
+      setCredits: (credits) => set({ credits }),
+      addCredits: (amount) => set({ credits: get().credits + amount }),
+      deductCredits: (amount) => set({ credits: get().credits - amount }),
+      setBet: (index) => set({ currentBetIndex: index, currentBet: BET_OPTIONS[index] }),
+      setSpinState: (state) => set({ spinState: state }),
+      setReelResults: (results) => set({ reelResults: results }),
+      setWinLines: (lines) => set({ winLines: lines }),
+      setLastWin: (amount) => set({ lastWin: amount }),
       claimDailyBonus: () => {
         const now = Date.now();
-        const lastClaim = get().lastDailyBonus;
-        const dayInMs = 24 * 60 * 60 * 1000;
-        
-        if (now - lastClaim >= dayInMs) {
-          set((state: GameState) => ({
-            credits: state.credits + DAILY_BONUS,
-            lastDailyBonus: now,
-          }));
+        if (now - get().lastDailyBonus >= 86400000) {
+          set({ lastDailyBonus: now, credits: get().credits + DAILY_BONUS });
           return true;
         }
         return false;
       },
-      
       claimGMBonus: () => {
-        const now = Date.now();
-        const lastClaim = get().lastGMBonus;
-        const dayInMs = 24 * 60 * 60 * 1000;
-        const twoDaysInMs = 48 * 60 * 60 * 1000;
-        
-        if (now - lastClaim >= dayInMs) {
-          const isConsecutive = (now - lastClaim) <= twoDaysInMs;
-          
-          set((state: GameState) => ({
-            credits: state.credits + GM_BONUS,
-            lastGMBonus: now,
-            gmStreak: isConsecutive ? state.gmStreak + 1 : 1,
-          }));
-          return true;
-        }
+        // Логика GM бонуса, если нужна
         return false;
       },
-      
-      incrementSpinCount: () => set((state: GameState) => ({
-        sessionSpinCount: state.sessionSpinCount + 1,
-        totalSpins: state.totalSpins + 1,
-      })),
-      
-      resetGame: () => set({
-        credits: INITIAL_CREDITS,
-        currentBet: BET_OPTIONS[0],
-        currentBetIndex: 0,
-        spinState: 'idle',
-        lastWin: 0,
-        reelResults: ['🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒', '🍒'],
-        winLines: [],
-        sessionSpinCount: 0,
-      }),
+      incrementSpinCount: () => set({ sessionSpinCount: get().sessionSpinCount + 1, totalSpins: get().totalSpins + 1 }),
+      resetGame: () => set({ credits: INITIAL_CREDITS, spinState: 'idle' }),
     }),
-    {
-      name: 'neon-pulse-slots-storage',
-    }
+    { name: 'game-storage' }
   )
 );

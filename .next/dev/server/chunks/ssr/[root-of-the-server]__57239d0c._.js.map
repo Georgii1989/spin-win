@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 118, "column": 0}, "map": {"version":3,"sources":["file:///C:/projects/spin-win/components/Ready.tsx"],"sourcesContent":["'use client';\r\n\r\nimport { useEffect } from 'react';\r\nimport { sdk } from '@farcaster/miniapp-sdk';\r\n\r\nexport function Ready() {\r\n  useEffect(() => {\r\n    // Скрываем splash-экран Base Mini App как можно раньше\r\n    sdk.actions.ready();\r\n  }, []);\r\n\r\n  // Компонент ничего не рендерит\r\n  return null;\r\n}"],"names":[],"mappings":";;;;AAEA;AACA;AAAA;AAHA;;;AAKO,SAAS;IACd,IAAA,kNAAS,EAAC;QACR,uDAAuD;QACvD,mKAAG,CAAC,OAAO,CAAC,KAAK;IACnB,GAAG,EAAE;IAEL,+BAA+B;IAC/B,OAAO;AACT"}}]
+}
