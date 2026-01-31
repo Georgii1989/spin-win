@@ -1,0 +1,145 @@
+[00:00:02.618] Server  LOG     ✓ Ready in 1947ms
+[00:00:07.548] Server  ERROR   ⨯ ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:09.625] Browser ERROR   uncaughtError: Error: ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:10.285] Browser WARN    Backpack couldn't override `window.ethereum`.
+[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:00:10.285] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:01.438] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:01:01.439] Browser ERROR   ./app/globals.css:2:2
+Module not found: Can't resolve 'tw-animate-css'
+  1 |
+> 2 | @import "tw-animate-css";
+    |  ^
+  3 |
+  4 | @custom-variant dark (&:is(.dark *));
+  5 |
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
