@@ -7,11 +7,11 @@
   "miniapp": {
     "version": "1",
     "name": "Spin and Win on Base",
-    "iconUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_601f5c68-86e1-44da-98d1-794ad7b9b9fa-Nap0w9BRYI7nmZoCfbDhro8yZOtmk1",
+    "iconUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/icon.png",
     "homeUrl": "https://spin-win-swart.vercel.app",
-    "imageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_601f5c68-86e1-44da-98d1-794ad7b9b9fa-Nap0w9BRYI7nmZoCfbDhro8yZOtmk1",
+    "imageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/hero.png",
     "buttonTitle": "Play Now",
-    "splashImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg",
+    "splashImageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/splash.png",
     "splashBackgroundColor": "#ffffff",
     "tags": [
       "game",
@@ -22,7 +22,7 @@
     ],
     "primaryCategory": "entertainment",
     "ogTitle": "Spin and Win on Base",
-    "ogImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_601f5c68-86e1-44da-98d1-794ad7b9b9fa-Nap0w9BRYI7nmZoCfbDhro8yZOtmk1",
+    "ogImageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/icon.png",
     "screenshotUrls": []
   },
   "baseBuilder": {
