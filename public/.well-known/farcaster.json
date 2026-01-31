@@ -1,9 +1,14 @@
-{
+ {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjY1OTk1NywidHlwZSI6ImF1dGgiLCJrZXkiOiIweGMwOGNCN2FDZDNlNTZCNmFjNGJFOGE4OWYxMTgyNGMyNzBkYjQxMWEifQ",
+    "payload": "eyJkb21haW4iOiJzcGluLXdpbi1zd2FydC52ZXJjZWwuYXBwIn0",
+    "signature": "EjQK0yAxmxAC0ficpYcb47A1dTnYUY6vGpxUY0zF7RAmTgsLESypSsK6qf5Y1lFzx3SigFK6EdU83QcYB+kW1xs="
+  },
   "miniapp": {
     "version": "1",
     "name": "Spin & Win on Base",
     "iconUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_601f5c68-86e1-44da-98d1-794ad7b9b9fa-Nap0w9BRYI7nmZoCfbDhro8yZOtmk1",
-    "homeUrl": "https://YOUR-DOMAIN.vercel.app",
+    "homeUrl": "https://spin-win-swart.vercel.app",
     "imageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/thumbnail_601f5c68-86e1-44da-98d1-794ad7b9b9fa-Nap0w9BRYI7nmZoCfbDhro8yZOtmk1",
     "buttonTitle": "Play Now",
     "splashImageUrl": "https://usdozf7pplhxfvrl.public.blob.vercel-storage.com/farcaster/splash_images/splash_image1.svg",
@@ -21,6 +26,6 @@
     "screenshotUrls": []
   },
   "baseBuilder": {
-    "ownerAddress": ""
+    "ownerAddress": "0x8655520b4b19187038aC9a4f560da0979Cc1E95C"
   }
 }
