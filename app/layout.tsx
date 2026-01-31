@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Ready } from "@/components/Ready";  // Проверь путь!
-
-// Статический metadata (SEO базовый)
-export const metadata: Metadata = {
-  title: "Spin Win Casino",
-  description: "Exciting slot-style game on Base. Spin to win crypto rewards!",
-};
+import { Ready } from "@/components/Ready";  // предполагаем, что путь правильный
 
 // Root Layout
 export default function RootLayout({
@@ -25,12 +19,11 @@ export default function RootLayout({
   );
 }
 
-// Динамический metadata с fc:miniapp
+// Динамический metadata (включая fc:miniapp) — единственный источник метаданных
 export async function generateMetadata(): Promise<Metadata> {
-  // Выносим объект для читаемости и чтобы легче отлаживать
   const miniAppConfig = {
-    version: 'next',  // ← Рекомендую 'next' вместо '1'
-    imageUrl: 'https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/hero.png', // ← Желательно 3:2 ratio
+    version: 'next',  // актуальная версия для Farcaster/Base Mini Apps
+    imageUrl: 'https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/hero.png',
     button: {
       title: 'Play Now',
       action: {
@@ -44,7 +37,8 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 
   return {
-    // Можно расширять другими полями, если нужно
+    title: "Spin Win Casino",
+    description: "Exciting slot-style game on Base. Spin to win crypto rewards!",
     other: {
       'fc:miniapp': JSON.stringify(miniAppConfig),
     },
