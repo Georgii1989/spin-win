@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Button } from '@/components/ui/button';
 import { audioManager } from '@/lib/audioManager';
 
-export function DailyBonusModal(): JSX.Element {
+export function DailyBonusModal(): ReactElement | null {
   const [isOpen, setIsOpen] = useState(false);
   const [claimed, setClaimed] = useState(false);
   const [mounted, setMounted] = useState(false);

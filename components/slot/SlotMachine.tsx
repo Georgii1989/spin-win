@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ReactElement } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { spinSlotMachine } from '@/lib/slotMachine';
 import { audioManager } from '@/lib/audioManager';
@@ -9,7 +9,7 @@ import { HUDOverlay } from './HUDOverlay';
 import { DailyBonusModal } from './DailyBonusModal';
 import { Leaderboard } from './Leaderboard';
 
-export function SlotMachine(): JSX.Element {
+export function SlotMachine(): ReactElement {
   const credits = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.credits);
   const currentBet = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.currentBet);
   const spinState = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.spinState);

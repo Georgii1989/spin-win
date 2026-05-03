@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type ReactElement } from 'react';
 import * as PIXI from 'pixi.js';
 import gsap from 'gsap';
 import type { SlotSymbol, WinLine } from '@/store/gameStore';
@@ -19,7 +19,7 @@ const SLOT_SIZE = 100;
 const GRID_SPACING = 10;
 const GRID_SIZE = 3;
 
-export function PixiStage({ symbols, onSpinComplete, isSpinning, isNearMiss, winLines }: PixiStageProps): JSX.Element {
+export function PixiStage({ symbols, onSpinComplete, isSpinning, isNearMiss, winLines }: PixiStageProps): ReactElement {
   const containerRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<PIXI.Application | null>(null);
   const slotsRef = useRef<PIXI.Container[]>([]);

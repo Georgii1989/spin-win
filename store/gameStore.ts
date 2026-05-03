@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export type SlotSymbol = 'Cherry' | 'Lemon' | 'Orange' | 'Watermelon' | 'Diamond' | 'Seven' | 'Star';
+export type SlotSymbol = '🍒' | '🍋' | '🍊' | '🍉' | '💎' | '7️⃣' | '⭐';
 
 export type SpinState = 'idle' | 'spinning' | 'stopping' | 'stopped' | 'win_locked';
 
@@ -10,6 +10,14 @@ export interface WinLine {
   positions: number[];
   symbol: SlotSymbol;
   payout: number;
+}
+
+export interface SpinResult {
+  symbols: SlotSymbol[];
+  payout: number;
+  winType: 'none' | 'small' | 'normal' | 'big' | 'jackpot';
+  winLines: WinLine[];
+  isNearMiss: boolean;
 }
 
 export interface GameState {

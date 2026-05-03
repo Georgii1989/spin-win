@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactElement } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Button } from '@/components/ui/button';
 import { audioManager } from '@/lib/audioManager';
@@ -11,7 +11,7 @@ interface HUDOverlayProps {
   canSpin: boolean;
 }
 
-export function HUDOverlay({ onSpin, canSpin }: HUDOverlayProps): JSX.Element {
+export function HUDOverlay({ onSpin, canSpin }: HUDOverlayProps): ReactElement | null {
   const credits = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.credits);
   const currentBet = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.currentBet);
   const currentBetIndex = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.currentBetIndex);
