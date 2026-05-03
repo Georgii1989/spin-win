@@ -100,7 +100,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "C:\\projects\\spin-win",
+    "outputFileTracingRoot": "D:\\cursor project\\spin-win",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -293,11 +293,11 @@ self.__SERVER_FILES_MANIFEST={
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.mjs",
     "turbopack": {
-      "root": "C:\\projects\\spin-win"
+      "root": "D:\\cursor project\\spin-win"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "C:\\projects\\spin-win",
+  "appDir": "D:\\cursor project\\spin-win",
   "relativeAppDir": "",
   "files": [
     ".next\\routes-manifest.json",

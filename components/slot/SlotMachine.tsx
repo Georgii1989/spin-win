@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, type ReactElement } from 'react';
+import { Trophy, ChevronLeft } from 'lucide-react';
 import { useGameStore } from '@/store/gameStore';
 import { spinSlotMachine } from '@/lib/slotMachine';
 import { audioManager } from '@/lib/audioManager';
@@ -8,6 +9,7 @@ import { PixiStage } from './PixiStage';
 import { HUDOverlay } from './HUDOverlay';
 import { DailyBonusModal } from './DailyBonusModal';
 import { Leaderboard } from './Leaderboard';
+import { SplashScreen } from './SplashScreen';
 
 export function SlotMachine(): ReactElement {
   const credits = useGameStore((state: ReturnType<typeof useGameStore.getState>) => state.credits);
@@ -26,6 +28,7 @@ export function SlotMachine(): ReactElement {
   const [isNearMiss, setIsNearMiss] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
 
   useEffect(() => {
     setMounted(true);
@@ -75,16 +78,23 @@ export function SlotMachine(): ReactElement {
     setSpinState('idle');
   };
 
+  if (showSplash) {
+    return <SplashScreen onStart={() => setShowSplash(false)} />;
+  }
+
   return (
-    <div className="relative w-full h-screen bg-gradient-to-b from-black via-purple-950 to-black overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
+    <div className="relative h-screen w-full overflow-hidden bg-[#05040d]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(124,58,237,0.25),transparent_35%),radial-gradient(circle_at_75%_25%,rgba(6,182,212,0.2),transparent_30%),radial-gradient(circle_at_50%_80%,rgba(236,72,153,0.2),transparent_40%)]" />
+      <div className="pointer-events-none absolute -left-24 top-0 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
+      <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
       
       <div className="absolute top-4 left-4 z-10">
         <button
           onClick={() => setShowLeaderboard(!showLeaderboard)}
-          className="px-4 py-2 rounded-lg bg-purple-600/50 hover:bg-purple-500/70 text-white font-bold border-2 border-purple-400 transition-all"
+          className="inline-flex items-center gap-2 rounded-xl border border-cyan-300/40 bg-black/50 px-4 py-2 font-semibold text-cyan-100 shadow-[0_0_20px_rgba(34,211,238,0.2)] backdrop-blur-md transition-all hover:scale-[1.02] hover:bg-cyan-500/20"
         >
-          {showLeaderboard ? '← Back' : '🏆 Leaderboard'}
+          {showLeaderboard ? <ChevronLeft className="h-4 w-4" /> : <Trophy className="h-4 w-4" />}
+          {showLeaderboard ? 'Back' : 'Leaderboard'}
         </button>
       </div>
 

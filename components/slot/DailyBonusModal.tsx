@@ -4,6 +4,7 @@ import { useEffect, useState, type ReactElement } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Button } from '@/components/ui/button';
 import { audioManager } from '@/lib/audioManager';
+import { Gift } from 'lucide-react';
 
 export function DailyBonusModal(): ReactElement | null {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,12 +42,12 @@ export function DailyBonusModal(): ReactElement | null {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm">
-      <div className="relative w-[90vw] max-w-md rounded-lg border-2 border-cyan-400 bg-gradient-to-b from-purple-900 to-black p-8 shadow-[0_0_30px_rgba(0,240,255,0.5)]">
+      <div className="relative w-[90vw] max-w-md rounded-2xl border border-cyan-300/60 bg-gradient-to-b from-purple-900/95 via-[#130b2c] to-black p-8 shadow-[0_0_45px_rgba(34,211,238,0.45)]">
         <div className="mb-6 text-center">
-          <h2 className="mb-2 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
+          <h2 className="mb-2 text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-purple-400">
             Daily Supply Drop
           </h2>
-          <p className="text-lg text-cyan-300">
+          <p className="text-lg text-cyan-200">
             Your daily credits are ready!
           </p>
         </div>
@@ -56,7 +57,10 @@ export function DailyBonusModal(): ReactElement | null {
             onClick={handleClaim}
             className="w-full h-16 text-2xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all duration-200 active:scale-95"
           >
-            Open Crate (+500 Credits)
+            <span className="inline-flex items-center gap-2">
+              <Gift className="h-5 w-5" />
+              Open Crate (+500 Credits)
+            </span>
           </Button>
         ) : (
           <div className="text-center">
