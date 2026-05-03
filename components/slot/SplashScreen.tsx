@@ -10,7 +10,7 @@ interface SplashScreenProps {
 
 export function SplashScreen({ onStart }: SplashScreenProps): ReactElement {
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#05040d]">
+    <div className="relative flex h-[100dvh] w-full items-center justify-center overflow-hidden bg-[#05040d]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(124,58,237,0.35),transparent_38%),radial-gradient(circle_at_80%_25%,rgba(6,182,212,0.25),transparent_36%),radial-gradient(circle_at_50%_80%,rgba(236,72,153,0.22),transparent_44%)]" />
       <div className="pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-fuchsia-500/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />

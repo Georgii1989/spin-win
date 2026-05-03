@@ -4,7 +4,7 @@ import { SlotMachine } from '@/components/slot/SlotMachine';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-black">
+    <main className="flex h-[100dvh] w-full flex-col items-center justify-center overflow-hidden bg-black">
       <SlotMachine />
     </main>
   );
