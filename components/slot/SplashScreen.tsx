@@ -16,6 +16,11 @@ export function SplashScreen({ onStart }: SplashScreenProps): ReactElement {
       <div className="pointer-events-none absolute -right-24 bottom-8 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
 
       <div className="relative z-10 mx-4 w-full max-w-2xl rounded-3xl border border-white/15 bg-black/45 p-8 text-center shadow-[0_25px_120px_rgba(6,182,212,0.25)] backdrop-blur-xl">
+        <img
+          src="/casino-logo.png"
+          alt="Spin and Win logo"
+          className="mx-auto mb-4 h-20 w-20 rounded-2xl border border-cyan-200/30 shadow-[0_0_24px_rgba(34,211,238,0.35)]"
+        />
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-yellow-300/35 bg-yellow-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-200">
           <Sparkles className="h-3.5 w-3.5" />
           High Stakes Experience

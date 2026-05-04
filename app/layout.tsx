@@ -22,7 +22,7 @@ export default function RootLayout({
 // Динамический metadata (включая fc:miniapp) — единственный источник метаданных
 export async function generateMetadata(): Promise<Metadata> {
   const appUrl = 'https://spin-win-swart.vercel.app';
-  const logoUrl = `${appUrl}/casino-logo.svg`;
+  const logoUrl = `${appUrl}/casino-logo.png`;
   const miniAppConfig = {
     version: 'next',  // актуальная версия для Farcaster/Base Mini Apps
     imageUrl: logoUrl,

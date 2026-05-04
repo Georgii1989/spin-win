@@ -104,7 +104,7 @@ export function SlotMachine(): ReactElement {
         </div>
       ) : (
         <>
-          <div className="flex items-center justify-center h-full">
+          <div className="flex h-full items-start justify-center pt-24 pb-80">
             <PixiStage
               symbols={reelResults}
               onSpinComplete={handleSpinComplete}
