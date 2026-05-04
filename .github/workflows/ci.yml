@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Build
+        run: npm run build
+
+  deployment-smoke:
+    if: github.ref == 'refs/heads/main' && secrets.PRODUCTION_HEALTHCHECK_URL != ''
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for deployment
+        run: sleep 45
+
+      - name: Check production health
+        run: |
+          curl -fS "${{ secrets.PRODUCTION_HEALTHCHECK_URL }}/api/health"

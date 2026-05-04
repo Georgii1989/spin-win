@@ -7,12 +7,12 @@
   "miniapp": {
     "version": "1",
     "name": "Spin and Win on Base",
-    "iconUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/icon.png",
+    "iconUrl": "https://spin-win-swart.vercel.app/casino-logo.svg",
     "homeUrl": "https://spin-win-swart.vercel.app",
-    "imageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/hero.png",
+    "imageUrl": "https://spin-win-swart.vercel.app/casino-logo.svg",
     "buttonTitle": "Play Now",
-    "splashImageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/splash.png",
-    "splashBackgroundColor": "#ffffff",
+    "splashImageUrl": "https://spin-win-swart.vercel.app/casino-logo.svg",
+    "splashBackgroundColor": "#05040d",
     "tags": [
       "game",
       "slots",
@@ -22,7 +22,7 @@
     ],
     "primaryCategory": "entertainment",
     "ogTitle": "Spin and Win on Base",
-    "ogImageUrl": "https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/icon.png",
+    "ogImageUrl": "https://spin-win-swart.vercel.app/casino-logo.svg",
     "screenshotUrls": []
   },
   "baseBuilder": {

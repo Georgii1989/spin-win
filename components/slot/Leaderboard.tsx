@@ -12,6 +12,7 @@ interface LeaderboardEntry {
 
 const CURRENT_USER = '1x321';
 const VISIBLE_TOP = 10;
+const PAGE_SIZE = 120;
 
 const NAME_POOL = [
   'CryptoKing', 'LuckyWhale', 'SlotMaster', 'DiamondHands', 'NeonRider',
@@ -44,6 +45,49 @@ export function Leaderboard(): ReactElement {
       { id: 'user-1x321', username: CURRENT_USER, credits, isCurrentUser: true },
     ];
   });
+  const [source, setSource] = useState<'api' | 'fallback'>('fallback');
+  const [loading, setLoading] = useState(true);
+
+  const fetchLeaderboard = async (): Promise<void> => {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/leaderboard?limit=${PAGE_SIZE}&offset=0`, { cache: 'no-store' });
+      if (!response.ok) throw new Error('Failed to fetch leaderboard');
+      const data = (await response.json()) as {
+        items?: Array<{
+          wallet: string;
+          username: string;
+          credits: number;
+        }>;
+      };
+      const items = data.items ?? [];
+      if (items.length === 0) {
+        setSource('fallback');
+        return;
+      }
+      const mapped: LeaderboardEntry[] = items.map((item) => ({
+        id: item.wallet,
+        username: item.username,
+        credits: item.credits,
+        isCurrentUser: item.username === CURRENT_USER,
+      }));
+      const hasUser = mapped.some((item) => item.username === CURRENT_USER);
+      if (!hasUser) {
+        mapped.push({
+          id: 'user-1x321',
+          username: CURRENT_USER,
+          credits,
+          isCurrentUser: true,
+        });
+      }
+      setEntries(mapped);
+      setSource('api');
+    } catch {
+      setSource('fallback');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     setEntries((prev: LeaderboardEntry[]) =>
@@ -53,8 +97,34 @@ export function Leaderboard(): ReactElement {
     );
   }, [credits]);
 
-  // "Live" updates: bots gain/lose credits and new rows appear over time.
+  // API first: pull leaderboard rows from backend.
   useEffect(() => {
+    void fetchLeaderboard();
+    const interval = setInterval(() => {
+      void fetchLeaderboard();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Keep backend row for current user updated.
+  useEffect(() => {
+    if (source !== 'api') return;
+    void fetch('/api/leaderboard', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        wallet: 'local-1x321',
+        username: CURRENT_USER,
+        credits,
+        totalSpins: 0,
+      }),
+    });
+  }, [credits, source]);
+
+  // Fallback simulation if backend is not configured.
+  useEffect(() => {
+    if (source !== 'fallback') return;
     const interval = setInterval(() => {
       setEntries((prev: LeaderboardEntry[]) => {
         const updated = prev.map((entry: LeaderboardEntry) => {
@@ -75,9 +145,8 @@ export function Leaderboard(): ReactElement {
         return updated;
       });
     }, 2200);
-
     return () => clearInterval(interval);
-  }, []);
+  }, [source]);
 
   const ranked = useMemo(() => {
     return [...entries]
@@ -95,8 +164,9 @@ export function Leaderboard(): ReactElement {
         Live Leaderboard
       </h3>
       <p className="mb-3 text-center text-xs text-cyan-200/80">
-        Infinite ranking stream, top 10 pinned
+        {source === 'api' ? 'Live backend data, top 10 pinned' : 'Infinite fallback stream, top 10 pinned'}
       </p>
+      {loading && <p className="mb-3 text-center text-xs text-cyan-200/70">Refreshing leaderboard...</p>}
 
       <div className="mb-3 rounded-xl border border-yellow-400/30 bg-yellow-500/5 p-3">
         <a

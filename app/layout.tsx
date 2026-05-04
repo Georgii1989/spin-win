@@ -21,17 +21,19 @@ export default function RootLayout({
 
 // Динамический metadata (включая fc:miniapp) — единственный источник метаданных
 export async function generateMetadata(): Promise<Metadata> {
+  const appUrl = 'https://spin-win-swart.vercel.app';
+  const logoUrl = `${appUrl}/casino-logo.svg`;
   const miniAppConfig = {
     version: 'next',  // актуальная версия для Farcaster/Base Mini Apps
-    imageUrl: 'https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/hero.png',
+    imageUrl: logoUrl,
     button: {
       title: 'Play Now',
       action: {
         type: 'launch_miniapp',
         name: 'Spin and Win on Base',
-        url: 'https://spin-win-swart.vercel.app',
-        splashImageUrl: 'https://mqnkgatqwc4pmcvo.public.blob.vercel-storage.com/splash.png',
-        splashBackgroundColor: '#ffffff',
+        url: appUrl,
+        splashImageUrl: logoUrl,
+        splashBackgroundColor: '#05040d',
       },
     },
   };
